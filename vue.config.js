@@ -12,7 +12,6 @@ module.exports = {
     output: {
       filename: "js/[name]" + fileVersion + ".js",
       chunkFilename: "[name]" + fileVersion + ".js",
-      library: "@example/header",
       libraryTarget: "system"
     },
     externals: ['vue', 'vue-router'],
