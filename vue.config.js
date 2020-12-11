@@ -12,8 +12,10 @@ module.exports = {
     output: {
       filename: "js/[name]" + fileVersion + ".js",
       chunkFilename: "[name]" + fileVersion + ".js",
-      libraryTarget: "system"
+      libraryTarget: "system",
+      devtoolNamespace: 'header'
     },
+    devtool: 'sourcemap',
     externals: ['vue', 'vue-router'],
     plugins: [
       new BundleAnalyzerPlugin({
@@ -25,5 +27,9 @@ module.exports = {
   },
   chainWebpack: config => {
     config.plugins.delete("prefetch");
+    config.module.rule('vue').use('vue-loader').tap(options => {
+      options.hotReload = false;
+      return options
+    })
   }
 };
