@@ -1,6 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">app1</router-link> |
+    <router-link to="/app2">app2</router-link> |
   </div>
   <router-view />
 </template>
